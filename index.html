@@ -290,16 +290,16 @@ function myFunction1() {
     var x = document.getElementById("LoadMore1");
     var y = document.getElementById("LoadMore2");
     if (x.className.indexOf("w3-show") == -1) {
-        x.className = x.className.replace(" w3-hide", " w3-show");
+        x.className = x.className.replace("w3-hide", "w3-show");
         x.className += " w3-animate-opacity";
         y.className = y.className.replace(" w3-animate-right w3-text-orange", "");
         y.className += " w3-animate-top ";
         document.getElementById("LoadMore2").innerHTML= "SHOW LESS";
     } else {
-        x.className = x.className.replace(" w3-animate-opacity", "")
-        x.className = x.className.replace(" w3-show", " w3-hide");
+        x.className = x.className.replace(" w3-animate-opacity", "");
+        x.className = x.className.replace("w3-show", "w3-hide");
         y.className = y.className.replace(" w3-animate-top", "");
-        y.className += " w3-animate-right w3-text-orange"
+        y.className += " w3-animate-right w3-text-orange";
         document.getElementById("LoadMore2").innerHTML= "LOAD MORE";
     }
 }

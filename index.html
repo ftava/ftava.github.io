@@ -171,7 +171,7 @@ body, html {
   </div>
 
 
-  <div id="LoadMore1" class="w3-hide w3-row-padding w3-center">
+  <div id="LoadMore1" class="w3-show w3-row-padding w3-center">
     <h3 class="w3-center w3-section">Architecture & Design</h3>
     <div class="w3-col m9 w3-inline">
      <p align="left">Creating 3d model houses, in a way, represents Arts and Engineering for me. The following images are from some of the works that I've done recently. Click on any image to make them bigger.</p>
@@ -184,7 +184,7 @@ body, html {
     </div>
   </div>
   <div class="w3-row-padding w3-center">
-    <button id="LoadMore2" onclick="myFunction1()" class="w3-button w3-padding-large w3-light-grey"  style="margin-top:64px">LOAD MORE</button>
+    <button id="LoadMore2" onclick="myFunction1()" class="w3-button w3-padding-large w3-light-grey"  style="margin-top:64px">SHOW LESS</button>
   </div>
 </div>
 
@@ -290,12 +290,13 @@ function myFunction1() {
     var x = document.getElementById("LoadMore1");
     var y = document.getElementById("LoadMore2");
     if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show w3-animate-opacity";
+        x.className = x.className.replace(" w3-hide", " w3-show");
+        x.className += " w3-animate-opacity";
         y.className = y.className.replace(" w3-animate-right w3-text-orange", "");
         y.className += " w3-animate-top ";
         document.getElementById("LoadMore2").innerHTML= "SHOW LESS";
     } else {
-        x.className = x.className.replace(" w3-show", "");
+        x.className = x.className.replace(" w3-show", " w3-hide");
         y.className = y.className.replace(" w3-animate-top", "");
         y.className += " w3-animate-right w3-text-orange"
         document.getElementById("LoadMore2").innerHTML= "LOAD MORE";

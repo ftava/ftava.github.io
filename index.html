@@ -50,6 +50,53 @@ body, html {
     }
 }
 </style>
+<style>
+/*Slide Show Added*/
+.mySlides {display: none;}
+.w3-hover-text-khaki {cursor:pointer}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  cursor:pointer
+}
+
+.active {
+  background-color: #DDFFDD;
+
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+</style>
 <body>
 
 <div class="w3-top">
@@ -182,6 +229,40 @@ body, html {
       <img src="Designpic8.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Quiet ocean">
     </div>
   </div>
+
+  <!--Structural Added  -->
+
+  <div  class="w3-show w3-row-padding w3-center">
+    <h3 class="w3-center w3-section">Structural Engineering</h3>
+    <div class="w3-col m9 w3-inline">
+     <p align="left">The following images are portion of the structrual plans that we have designed recently. Click on the slider to see the images.</p>
+    </div>
+
+  <!--Slide Show Added  -->
+
+    <div class="w3-content w3-section w3-col m3 w3-right" style="max-width:500px">
+     <div class="slideshow-container">
+      <div class="mySlides fade">
+       <img src="Plan1.jpg" style="width:100%; vertical-align: middle;">
+      </div>
+      <div class="mySlides fade">
+      <img src="Plan2.jpg" style="width:100%; vertical-align: middle;">
+      </div>
+      <div class="mySlides fade">
+      <img src="Plan4.jpg" style="width:100%; vertical-align: middle;">
+      </div>
+
+      <div style="text-align:center">
+       <div class="w3-container w3-xlarge w3-text-gray w3-display-bottomleft w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+       <div class="w3-container w3-xlarge w3-text-gray w3-display-bottomright w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+       <span class="dot w3-hover-white" onclick="currentDiv(1)"></span>
+       <span class="dot w3-hover-white" onclick="currentDiv(2)"></span>
+       <span class="dot w3-hover-white" onclick="currentDiv(3)"></span>
+      </div>
+     </div>
+    </div>
+   </div>
+
   <div class="w3-row-padding w3-center">
     <button id="LoadMore2" onclick="myFunction1()" class="w3-button w3-padding-large w3-light-grey"  style="margin-top:64px">SHOW LESS</button>
   </div>
@@ -303,6 +384,59 @@ function myFunction1() {
     }
 }
 </script>
+
+<script>
+/* Slide Show Added*/
+    var slideIndex = 0;
+    showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 4000); // Change image every 2 seconds
+}
+</script>
+
+<script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+function plusDivs(n) {
+    showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+    showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+     dots[i].className = dots[i].className.replace(" active", "");
+  }
+  x[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
 
 </body>
 </html>
